@@ -19,7 +19,7 @@ var path = require('path');
 var htaccessParser = require('htaccess-parser');
 
 htaccessParser({
-	file: path.resolve(__dirname, '.htaccess')
+  file: path.resolve(__dirname, '.htaccess')
 }, 
 function(err, parsedFile) {
   console.log(parsedFile);
