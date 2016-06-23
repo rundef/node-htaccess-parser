@@ -18,7 +18,7 @@ describe('htaccess parser', function() {
 
   it('RewriteBase', function (done) {
     expect(htaccess.RewriteBase).to.equal('/dir');
-    expect(htaccess.RewriteRules).to.have.lengthOf(3);
+    expect(htaccess.RewriteRules).to.have.lengthOf(4);
 
     done();
   });
@@ -71,6 +71,21 @@ describe('htaccess parser', function() {
     expect(htaccess.RewriteRules[2].substitution).to.equal('-');
     expect(htaccess.RewriteRules[2].flags).to.have.lengthOf(1);
     expect(htaccess.RewriteRules[2].flags).to.have.members(['G']);
+
+    done();
+  });
+
+
+  it('RewriteRule #4', function (done) {
+    expect(htaccess.RewriteRules[3].conditions).to.have.lengthOf(1);
+    expect(htaccess.RewriteRules[3].conditions[0].variable).to.equal('%{REQUEST_METHOD}');
+    expect(htaccess.RewriteRules[3].conditions[0].pattern).to.equal('POST');
+    expect(htaccess.RewriteRules[3].conditions[0].flags).to.have.lengthOf(0);
+
+    expect(htaccess.RewriteRules[3].pattern).to.equal('^(.*)');
+    expect(htaccess.RewriteRules[3].substitution).to.equal('/dest7.html');
+    expect(htaccess.RewriteRules[3].flags).to.have.lengthOf(1);
+    expect(htaccess.RewriteRules[3].flags).to.have.members(['L']);
 
     done();
   });

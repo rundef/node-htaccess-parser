@@ -10,3 +10,6 @@ RewriteRule .* - [F]
 RewriteCond %{REQUEST_METHOD} POST
 RewriteCond %{HTTP_REFERER} !^http://www.olddomain.com [NC]
 RewriteRule .* - [G]
+
+RewriteCond "%{REQUEST_METHOD}" "POST"
+RewriteRule '^(.*)' '/dest7.html' [L]
