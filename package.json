@@ -5,9 +5,8 @@
   "main": "lib/parser.js",
   "scripts": {
     "test": "./node_modules/.bin/_mocha",
-    "lint": "./node_modules/.bin/eslint index.js",
+    "lint": "./node_modules/.bin/eslint lib/*.js",
     "cover": "./node_modules/.bin/istanbul cover --report html node_modules/.bin/_mocha --check-leaks",
-    "travis": "./node_modules/istanbul/lib/cli.js cover ./node_modules/.bin/_mocha",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
   },
   "keywords": [
@@ -27,13 +26,15 @@
     "node": ">= 0.12.0"
   },
   "dependencies": {
-    "graceful-fs": "^4.1.4",
-    "lodash": "^4.13.1"
+    "graceful-fs": "^4.1.4"
   },
   "devDependencies": {
     "async": "^2.0.0-rc.6",
     "chai": "^3.5.0",
     "coveralls": "^2.11.9",
+    "eslint": "^2.13.1",
+    "eslint-config-airbnb-base": "^3.0.1",
+    "eslint-plugin-import": "^1.9.2",
     "istanbul": "^0.4.3",
     "mocha": "^2.5.3"
   }
